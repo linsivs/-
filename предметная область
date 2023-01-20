@@ -1,0 +1,61 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class University
+{
+public:
+    void NameUni()
+    {
+        cout << "ДВФУ|FEFU" << endl;
+
+    }
+
+};
+class Pass : public University
+{
+public:
+    string name; // имя студента
+    string institute; // институт студента
+    string housing; // корпус студента
+
+    void Print()
+    {
+        cout << "Имя " << name << "\nИнститут (Школа) " << institute << "\nКорпус " << housing << endl;
+        cout << "2022г." << endl << endl;
+        cout << "-----------------------------------------" << endl;
+    }
+};
+
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+
+    Pass ps1;
+    ps1.name = "Александрова София Артемовна";
+    ps1.housing = "корпус 7.1";
+    ps1.institute = "Институт математики и компьютерных технологий";
+    ps1.NameUni();
+
+    ps1.Print();
+
+    Pass ps2;
+    ps2.name = "Иванов Илья Иванович";
+    ps2.housing = "корпус 9";
+    ps2.institute = "Политехнический институт";
+    ps2.NameUni();
+
+    ps2.Print();
+
+    Pass ps3;
+    ps3.name = "Михайлов Денис Викторович";
+    ps3.housing = "корпус 11";
+    ps3.institute = "Юридическая школа";
+    ps3.NameUni();
+
+    ps3.Print();
+
+
+    return 0;
+}
