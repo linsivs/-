@@ -1,0 +1,57 @@
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class FEFU;
+class Student;
+
+class pass
+{
+public:
+    void S(Student &st);
+    
+    void D(Student  &st)
+    {
+        
+    }
+    // housing - корпус студента
+    // studies - школа/институт
+};
+class Student
+{
+    friend pass;
+public:
+    Student (string name, int housing, string studies)
+    {
+        this->name = name;
+        this->housing = housing;
+        this->studies = studies;
+        
+    
+    }
+private:
+    string name;
+    int housing;
+    string studies;
+
+    
+};
+
+void pass :: S(Student  & st)
+{
+    cout << "имя студента: " << st.name << endl;
+    cout << "корпус: "<< st.housing << endl;
+    cout << "институт/школа: " << st.studies << endl;
+
+}
+
+int main()
+{
+    setlocale(LC_ALL, "ru");
+    
+    Student st ("Иванов Иван", 9, "Политехнический институт");
+    pass p;
+    p.S(st);
+    return 0;
+}
