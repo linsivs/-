@@ -1,0 +1,52 @@
+
+// ВИРТУАЛЬНЫЕ ФУНКЦИИ
+// housing - корпус студента
+// studies - школа/институт
+// класс студент --> учеба --> внутри учебы корпус =  студент и учеба --> корпус
+
+#include <iostream>
+#include <string>
+ 
+class Student
+{
+public:
+    Student(std::string n, int a)
+    {
+        name = n; housing = a;
+    }
+    virtual void display()
+    {
+        std::cout << "имя: " << name << std::endl;
+        std::cout << "корпус: " << housing << std::endl;
+    }
+protected:
+    std::string name;
+private:
+    int housing;
+};
+class studies : public Student
+{
+public:
+    studies(std::string n, int a, std::string c):Student(n, a)
+    {
+        institute = c;
+    }
+    void display() override
+    {
+        Student::display();
+        std::cout << "Школа/институт: " << institute << std::endl;
+    }
+private:
+    std::string institute;
+};
+ 
+int main()
+{
+    Student st1("Иванов Илья Иванович", 11);
+    st1.display();
+    studies st2("Михайлов Денис Викторович", 9, "Политехнический институт");
+    st2.display();
+ 
+    return 0;
+}
+ 
